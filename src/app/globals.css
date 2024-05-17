@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./fonts.css";
+
+@layer utilities {
+    .cap-round { stroke-linecap: round; }
+    .stroke-3 { stroke-width: 3px; }
+    .stroke-4 { stroke-width: 4px; }
+    .fill-none { fill: none; }
+    .fill-gray-200 { fill: theme("colors.gray.200"); }
+    .fill-gray-800 { fill: theme("colors.gray.800"); }
+    .h-112 { height: 28rem; }
+    .border-l-6 { border-left-width: 6px; }
+    .underline-under { text-underline-position: under; }
+  }
+  
+  
+  @layer components {
+    a {
+      @apply
+        transition
+        text-gray-600 hover:text-gray-700
+        dark:text-gray-400
+        hover:underline hover:underline-under;
+    }
+    code { @apply text-sm font-iAWriter; }
+    :not(pre) > code { @apply text-secondary-light; }
+    a code { @apply text-gray-600; }
+    a:hover code { @apply text-gray-700; }
+    pre {
+      @apply max-w-full overflow-x-auto mb-5 ;
+    }
+    h1 { @apply text-4xl  mb-6; }
+    h2 { @apply text-3xl  mb-6 font-bold; }
+    h3 { @apply text-2xl  mb-6 font-bold; }
+    h4 { @apply text-xl   mb-6 font-bold; }
+    h5 { @apply text-lg   mb-6 font-bold; }
+    h6 { @apply text-base mb-6 font-bold; }
+    h2 + *, h3 + *, h4 + *, h5 + *, h6 + * { @apply mt-0; }
+    p { @apply mb-6; }
+    hr { @apply my-5 border-gray-400; }
+    blockquote {
+      @apply
+        p-4 mb-5 border-l-6 border-solid rounded border-green-500
+        bg-green-100 
+    }
+    ul {
+      @apply list-disc mb-4;
+    }
+    
+    ul > li {
+        @apply ml-6;
+        list-style-type: disc;
+        align-items: center;
+    }
+    
+    ul > li > input {
+        list-style-type: none;
+    }
+    
+    /* Additional style for input for better appearance */
+    
+    /* To handle the case where an li has an input child and needs to remove the dot */
+    ul > li > input {
+        list-style: none;
+    }
+    
+    ul > li:has(input) {
+        list-style-type: none;
+    }
+    blockquote p:last-of-type { @apply mb-0; }
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
